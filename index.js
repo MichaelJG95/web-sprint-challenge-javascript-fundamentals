@@ -214,11 +214,8 @@ const cuboidTwo = new CuboidMakerTwo({
  console.log(cuboidTwo.volume()); // 100
  console.log(cuboidTwo.surfaceArea()); // 130
 
+ 
 
-
-
-
-  
 
 
   /* 🛑🛑🛑🛑🛑 Please do not modify anything below this line 🛑🛑🛑🛑🛑 */

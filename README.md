@@ -25,14 +25,70 @@ Demonstrate your understanding of this week's concepts by answering the followin
 Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read.
 
 1. Explain the differences between `.map`, `.reduce` and `.filter` and describe a use case for each. 
+    
+    - The .map method iterates through each index of an array and applies its conditions to the item at each index. It returns a new array. .map could be used to apply a change to the value at each index, such as changing each word in an array of words according to how it would appear in pig latin. Example.
+            const words = ['Pig', 'laTin', 'is', 'Hard', 'to', 'speak']; // an array of words ready to be changed to pig latin
+
+            // I'll use the .map method to apply the rules of pig latin to each word in the array 'words'. I'll save the returned array to the variable 'pigLatin'
+            const pigLatin = words.map(word => {
+                const vowels = 'aeiou'; // I'll need to know what vowels are so I can to check how each word starts
+                word = word.toLowerCase(); // in case the words in the array are not all lowercase
+                
+                // A series of conditionals to check how the word starts and apply changes according to the rules of pig latin
+                if(vowels.includes(word[0]) === false && vowels.includes(word[1])){
+                    let start = word.slice(0, 1);
+                    return word.slice(1) + start + 'ay';
+                } else if(vowels.includes(word[0]) === false && vowels.includes(word[1]) === false){
+                    let start = word.slice(0, 2);
+                    return word.slice(2) + start + 'ay';
+                } else {
+                    return word + 'way';
+                }
+            });
+ 
+            console.log(words); 
+            console.log(pigLatin); // let's make sure it all worked
+    
+
+    - The .reduce method takes an array of values and reduces it returning a single value. A possible use for this would be in finding the sum of an array of numbers to use in calculating an average.
+
+            const scores = [87, 76, 94, 100, 97, 79, 63, 52]; // an array of test scores, I need to find the average score.
+            // I'll use the .reduce method to tally up all the scores.
+            const sumScores = scores.reduce((acc, score) => acc + score, 0);
+            // Now I just need to divide the sumScores by the number of scores in the scores array.
+            const averageScores = sumScores / scores.length;
+
+            console.log(averageScores);// I'll need to test with console.log to make sure it's working.
+
+    - The .filter method iterates through an array passing the value at each index through its conditions. It returns a new array containing all passing values. It could be used to find all words in an array that start with a certain letter.
+
+            const fruits = ['apple', 'banana', 'kiwi', 'apricot', 'cherry', 'avocado'];// an array of differnt fruits. I like fruits that start with the letter 'a'.
+
+            const aFruits = fruits.filter(fruit => fruit[0] === 'a');// I use .filter to find all fruits in the fruits array that start with the letter 'a'.
+
+            console.log(aFruits);// I'll console.log to make sure I didn't put a semi-colon in the wrong place.
 
 2. Explain the difference between a callback and a higher order function.
 
+    - A callback function is a function passed into another function as an argument, helpfully thought of as helper functions. A higher order function is a function that has other functions passed into it.
+
 3. Explain what a closure is.
+    
+    - Closure is when a nested function reaches into the outer function to access a value declared in the outer function.
 
 4. Describe the four principles of the 'this' keyword.
 
+    -Window binding, by default 'this' will return the window or global object. In strict mode it will return undefined.
+
+    -Implicit binding, when used in the context of an object's methods, 'this' refers to the object, that is when the method is invoked the thing to the left of the dot is what 'this' refers to.
+
+    -Explicit binging, we can use 'call', 'apply', or 'bind' to explicitly say what 'this' refers to.
+
+    -New binding, when the 'new' keyword is used with a constructor function, 'this' in the context of the constructor refers to the new object that is created.
+
 5. Why do we need super() in an extended class?
+    
+    - super() tells what values to pass to the keys of the parent class.
 
 You are expected to be able to answer questions in these areas. Your responses contribute to your Sprint Challenge grade. 
 
