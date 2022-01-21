@@ -66,7 +66,7 @@ const zooAnimals = [
 
   function animalNames(){
     const displayNames = [];
-    zooAnimals.forEach(animal => displayNames.push(`name: ${animal.animal_name}, scientific: ${animal.scientific_name}`))
+    zooAnimals.forEach(animal => displayNames.push(`name: ${animal.animal_name}, scientific: ${animal.scientific_name}`));
     return displayNames;
   }
   
@@ -87,8 +87,8 @@ const zooAnimals = [
   Using lowPopulationAnimals use .filter() to create a new array of objects which contains only the animals with a population of less than 5.
   */
 
-  function lowPopulationAnimals(/*Your Code Here*/){
-    /*Your Code Here*/
+  function lowPopulationAnimals(){
+    return zooAnimals.filter(animal => animal.population < 5);
   }
   
 
